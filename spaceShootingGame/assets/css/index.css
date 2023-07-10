@@ -16,6 +16,12 @@
     height: 100vh;
 }
 
+#home > div:hover {
+    transform: scale(1.1);
+    box-shadow: 0px 0px 25px 0 #0fe4ffa6;
+    background: #00bcd454;
+}
+
 #home > div {
     display: flex;
     width: 250px;
@@ -26,14 +32,16 @@
     box-shadow: 0px 5px 20px 0 black;
     justify-content: center;
     align-items: center;
+    transition: transform 0.5s;
 }
 
 #home > h1 {
     position: absolute;
     z-index: 1;
-    top: 30px;
+    top: 0;
+    margin-top: 15px;
     color: white;
-    font-size: 50px;
+    font-size: 70px;
     font-weight: bold;
 }
 

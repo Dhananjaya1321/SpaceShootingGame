@@ -14,15 +14,33 @@
 <section id="home">
     <img src="assets/images/galactic-night-sky-astronomy-science-combined-generative-ai.jpg">
     <h1>Select ship to continue</h1>
-    <div>
+    <div id="ship1">
         <img class="ships" src="assets/images/ship1.png">
     </div>
-    <div>
+    <div id="ship2">
         <img class="ships" src="assets/images/ship2.png">
     </div>
-    <div>
+    <div id="ship3">
         <img class="ships" src="assets/images/ship3.png">
     </div>
 </section>
+<script>
+    document.getElementById("ship1").addEventListener("click", function () {
+        let ship=document.querySelector("#ship1>img").getAttribute('src');
+        hideHomeSection();
+    });
+    document.getElementById("ship2").addEventListener("click", function () {
+        let ship=document.querySelector("#ship2>img").getAttribute('src');
+        hideHomeSection();
+    });
+    document.getElementById("ship3").addEventListener("click", function () {
+        let ship=document.querySelector("#ship3>img").getAttribute('src');
+        hideHomeSection();
+    });
+
+    function hideHomeSection() {
+        document.getElementById("home").style.display="none";
+    }
+</script>
 </body>
 </html>
