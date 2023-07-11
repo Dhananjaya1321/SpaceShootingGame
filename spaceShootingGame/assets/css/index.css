@@ -57,10 +57,15 @@
 #player {
     position: relative;
     height: 100vh;
+    overflow: hidden;
+}
+#player>img:nth-child(1){
+    position: absolute;
+    width: 100vw;
+    height: 100vh;
 }
 
-
-#player>img {
+#selected-ship {
     position: absolute;
     width: 100px;
     left: 0;
