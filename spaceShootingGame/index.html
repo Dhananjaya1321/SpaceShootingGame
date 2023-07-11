@@ -40,23 +40,19 @@
 
     let bottomDisplay = 0, leftDisplay = 0;
     $(window).keydown(function (e) {
-        $("#selected-ship").css("align-self", "start");
-        console.log(e.key);
-        console.log(e.pageX, e.pageY);
-
-        if (e.key === "ArrowUp") {
+        if (e.key === "ArrowUp" || e.key==="w") {
             bottomDisplay = bottomDisplay + 1;
             $("#selected-ship").css("bottom", bottomDisplay + "px");
 
-        } else if (e.key === "ArrowLeft") {
+        } else if (e.key === "ArrowLeft" || e.key==="a") {
             leftDisplay = leftDisplay - 2;
             $("#selected-ship").css("left", leftDisplay + "px");
 
-        } else if (e.key === "ArrowDown") {
+        } else if (e.key === "ArrowDown" || e.key==="s") {
             bottomDisplay = bottomDisplay - 1;
             $("#selected-ship").css("bottom", bottomDisplay + "px");
 
-        } else if (e.key === "ArrowRight") {
+        } else if (e.key === "ArrowRight" || e.key==="d") {
             leftDisplay = leftDisplay + 2;
             $("#selected-ship").css("left", leftDisplay + "px");
 
