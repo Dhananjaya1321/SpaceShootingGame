@@ -24,23 +24,63 @@
         <img class="ships" src="assets/images/ship3.png">
     </div>
 </section>
+<section id="player">
+    <img id="selected-ship" src="">
+</section>
+<script src="assets/js/jquery-3.7.0.min.js"></script>
 <script>
-    document.getElementById("ship1").addEventListener("click", function () {
-        let ship=document.querySelector("#ship1>img").getAttribute('src');
+    document.getElementById("ship1").addEventListener("click", function (e) {
+        let ship = document.querySelector("#ship1>img").getAttribute('src');
         hideHomeSection();
+        setSelectedShip(ship);
+        console.log(e);
     });
     document.getElementById("ship2").addEventListener("click", function () {
-        let ship=document.querySelector("#ship2>img").getAttribute('src');
+        let ship = document.querySelector("#ship2>img").getAttribute('src');
         hideHomeSection();
+        setSelectedShip(ship);
     });
     document.getElementById("ship3").addEventListener("click", function () {
-        let ship=document.querySelector("#ship3>img").getAttribute('src');
+        let ship = document.querySelector("#ship3>img").getAttribute('src');
         hideHomeSection();
+        setSelectedShip(ship);
     });
 
     function hideHomeSection() {
-        document.getElementById("home").style.display="none";
+        document.getElementById("home").style.display = "none";
     }
+
+    function setSelectedShip(ship) {
+        document.getElementById("selected-ship").setAttribute('src', ship);
+    }
+
+    let bottomDisplay = 0, leftDisplay = 0;
+    $(window).keydown(function (e) {
+        $("#selected-ship").css("align-self", "start");
+        console.log(e.key);
+        console.log(e.pageX, e.pageY);
+
+        if (e.key === "ArrowUp") {
+            bottomDisplay = bottomDisplay + 1;
+            $("#selected-ship").css("bottom", bottomDisplay + "px");
+
+        } else if (e.key === "ArrowLeft") {
+            leftDisplay = leftDisplay - 2;
+            $("#selected-ship").css("left", leftDisplay + "px");
+
+        } else if (e.key === "ArrowDown") {
+            bottomDisplay = bottomDisplay - 1;
+            $("#selected-ship").css("bottom", bottomDisplay + "px");
+
+        } else if (e.key === "ArrowRight") {
+            leftDisplay = leftDisplay + 2;
+            $("#selected-ship").css("left", leftDisplay + "px");
+
+        }
+
+    });
+
+
 </script>
 </body>
 </html>
