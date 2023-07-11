@@ -28,25 +28,9 @@
     <img id="selected-ship" src="">
 </section>
 <script src="assets/js/jquery-3.7.0.min.js"></script>
+<script src="assets/js/home-section.js"></script>
 <script>
-    document.getElementById("ship1").addEventListener("click", function (e) {
-        let ship = document.querySelector("#ship1>img").getAttribute('src');
-        hideHomeSection();
-        setSelectedShip(ship);
-        console.log(e);
-    });
-    document.getElementById("ship2").addEventListener("click", function () {
-        let ship = document.querySelector("#ship2>img").getAttribute('src');
-        hideHomeSection();
-        setSelectedShip(ship);
-    });
-    document.getElementById("ship3").addEventListener("click", function () {
-        let ship = document.querySelector("#ship3>img").getAttribute('src');
-        hideHomeSection();
-        setSelectedShip(ship);
-    });
-
-    function hideHomeSection() {
+    function hideSection() {
         document.getElementById("home").style.display = "none";
     }
 
