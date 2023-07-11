@@ -40,22 +40,31 @@
 
     let bottomDisplay = 0, leftDisplay = 0;
     $(window).keydown(function (e) {
-        if (e.key === "ArrowUp" || e.key==="w") {
-            bottomDisplay = bottomDisplay + 1;
-            $("#selected-ship").css("bottom", bottomDisplay + "px");
-
-        } else if (e.key === "ArrowLeft" || e.key==="a") {
-            leftDisplay = leftDisplay - 2;
-            $("#selected-ship").css("left", leftDisplay + "px");
-
-        } else if (e.key === "ArrowDown" || e.key==="s") {
-            bottomDisplay = bottomDisplay - 1;
-            $("#selected-ship").css("bottom", bottomDisplay + "px");
-
-        } else if (e.key === "ArrowRight" || e.key==="d") {
-            leftDisplay = leftDisplay + 2;
-            $("#selected-ship").css("left", leftDisplay + "px");
-
+        let viewPortWidth=$("#player").css("width");
+        let viewPortHeight = $("#player").css("height");
+        let heightAsNumber = parseInt(viewPortHeight, 10);
+        let widthAsNumber = parseInt(viewPortWidth, 10);
+        console.log(heightAsNumber);
+        if (e.key === "ArrowUp" || e.key === "w") {
+            if (heightAsNumber-100>bottomDisplay) {
+                bottomDisplay = bottomDisplay + 1;
+                $("#selected-ship").css("bottom", bottomDisplay + "px");
+            }
+        } else if (e.key === "ArrowLeft" || e.key === "a") {
+            if (0<leftDisplay) {
+                leftDisplay = leftDisplay - 2;
+                $("#selected-ship").css("left", leftDisplay + "px");
+            }
+        } else if (e.key === "ArrowDown" || e.key === "s") {
+            if (0<bottomDisplay) {
+                bottomDisplay = bottomDisplay - 1;
+                $("#selected-ship").css("bottom", bottomDisplay + "px");
+            }
+        } else if (e.key === "ArrowRight" || e.key === "d") {
+            if (widthAsNumber-100>leftDisplay) {
+                leftDisplay = leftDisplay + 2;
+                $("#selected-ship").css("left", leftDisplay + "px");
+            }
         }
 
     });
