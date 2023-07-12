@@ -1,4 +1,3 @@
-
 let bottomDisplay = 0, leftDisplay = 0;
 let heightAsNumber, widthAsNumber;
 let viewPortWidth, viewPortHeight;
@@ -29,12 +28,12 @@ $(window).keydown(function (e) {
         }
     }
 });
-
+let countIds = 0;
 $(window).click(function (e) {
     const divElement = document.createElement('div');
-
-    divElement.id = 'myDiv';
-    divElement.className = 'my-class';
+    countIds++;
+    divElement.id = 'bullet'+countIds;
+    divElement.className = 'bullets';
     divElement.style.backgroundColor = '#00a9ff';
     divElement.style.width = '6px';
     divElement.style.height = '20px';
@@ -51,14 +50,18 @@ $(window).click(function (e) {
     viewPortHeight = $("#player").css("height");
     heightAsNumber = parseInt(viewPortHeight, 10);
 
+    // console.log(divElement.style.left);
     function fair() {
         if (y >= heightAsNumber) {
             clearInterval(intervalID);
             divElement.remove();
-        }else {
+        } else {
+            console.log(divElement.style.left);
+
             y++;
             divElement.style.bottom = y + 'px';
         }
     }
+
     document.body.appendChild(divElement);
 });
