@@ -103,6 +103,18 @@
         document.body.appendChild(divElement);
     });
 
+    setInterval(function () {
+        const childShip = document.createElement('img');
+        childShip.id = 'child1';
+        childShip.style.width = '100px';
+        childShip.style.height = '100px';
+        childShip.style.margin = '0';
+        childShip.style.position = 'absolute';
+        childShip.style.top = '100px';
+        childShip.setAttribute('src',"assets/images/child-ship.png")
+        document.body.appendChild(childShip);
+
+    },30000);
 
 </script>
 </body>
