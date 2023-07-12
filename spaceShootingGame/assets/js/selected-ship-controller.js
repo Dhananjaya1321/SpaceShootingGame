@@ -32,7 +32,7 @@ let countIds = 0;
 $(window).click(function (e) {
     const divElement = document.createElement('div');
     countIds++;
-    divElement.id = 'bullet'+countIds;
+    divElement.id = 'bullet' + countIds;
     divElement.className = 'bullets';
     divElement.style.backgroundColor = '#00a9ff';
     divElement.style.width = '6px';
@@ -44,24 +44,35 @@ $(window).click(function (e) {
     divElement.style.left = leftDisplay + 47 + 'px';
     divElement.style.boxShadow = '0px 6px 9px 4px #2196F3';
 
-    const intervalID = setInterval(fair, 1);
-    let y = bottomDisplay + 50;
-
     viewPortHeight = $("#player").css("height");
     heightAsNumber = parseInt(viewPortHeight, 10);
-
-    // console.log(divElement.style.left);
-    function fair() {
-        if (y >= heightAsNumber) {
-            clearInterval(intervalID);
-            divElement.remove();
-        } else {
-            console.log(divElement.style.left);
-
-            y++;
-            divElement.style.bottom = y + 'px';
+    let newBullet,verifyCallBulletFunction=0;
+    for (let i = 1; i <= 10; i++) {
+        let childShipLeftPosition = parseInt($('#child-ship' + i).css('left'), 10);
+        let bulletLeftPosition = leftDisplay + 47;
+        // console.log(childShipLeftPosition <= bulletLeftPosition && childShipLeftPosition + 100 >= bulletLeftPosition);
+        if (childShipLeftPosition <= bulletLeftPosition && childShipLeftPosition + 100 >= bulletLeftPosition) {
+            let childShipTopPosition = parseInt($("#child-ship" + i).css('top'), 10) + 50;/*50*/
+            newBullet=new bullet('#bullet' + countIds,heightAsNumber - childShipTopPosition);
+            verifyCallBulletFunction=-1;
+        }
+        // console.log(verifyCallBulletFunction===0, i===10)
+        if (verifyCallBulletFunction===0 && i===10){
+            newBullet=new bullet('#bullet' + countIds,heightAsNumber);
         }
     }
-
     document.body.appendChild(divElement);
 });
+
+function bullet(bulletID, maxHeightWantToGo) {
+    let y = bottomDisplay + 50;
+    const intervalID = setInterval(function (){
+        if (y >= maxHeightWantToGo) {
+            clearInterval(intervalID);
+            $(bulletID).remove();
+        } else {
+            y++;
+            $(bulletID).css('bottom',y + 'px');
+        }
+    },1);
+}
