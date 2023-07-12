@@ -7,7 +7,59 @@
     <link rel="stylesheet" href="assets/css/index.css">
     <meta name="viewport" content="width=device-width initial-scale=1">
     <style>
+        .child-ships {
+            position: absolute;
+        }
 
+        #child-ship1 {
+            top: 200px;
+            left: 300px;
+        }
+
+        #child-ship2 {
+            top: 110px;
+            left: 450px;
+        }
+
+        #child-ship3 {
+            top: 200px;
+            left: 600px;
+        }
+
+        #child-ship4 {
+            top: 50px;
+            left: 80px;
+        }
+
+        #child-ship5 {
+            top: 50px;
+            right: 80px;
+        }
+
+        #child-ship6 {
+            top: 340px;
+            left: 450px;
+        }
+
+        #child-ship7 {
+            top: 0;
+            left: 250px;
+        }
+
+        #child-ship8 {
+            top: 0;
+            right: 250px;
+        }
+
+        #child-ship9 {
+            top: 0;
+            left: 350px;
+        }
+
+        #child-ship10 {
+            top: 0;
+            right: 350px;
+        }
     </style>
 </head>
 <body>
@@ -27,9 +79,23 @@
 <section id="player">
     <img src="assets/images/low-angle-shot-mesmerizing-starry-sky.jpg">
     <img id="selected-ship" src="">
+
+    <img id="child-ship1" class="child-ships" src="assets/images/child-ship.png" width="100" height="100">
+    <img id="child-ship2" class="child-ships" src="assets/images/child-ship.png" width="100" height="100">
+    <img id="child-ship3" class="child-ships" src="assets/images/child-ship.png" width="100" height="100">
+    <img id="child-ship4" class="child-ships" src="assets/images/child-ship.png" width="100" height="100">
+    <img id="child-ship5" class="child-ships" src="assets/images/child-ship.png" width="100" height="100">
+    <img id="child-ship6" class="child-ships" src="assets/images/child-ship.png" width="100" height="100">
+    <img id="child-ship7" class="child-ships" src="assets/images/child-ship.png" width="100" height="100">
+    <img id="child-ship8" class="child-ships" src="assets/images/child-ship.png" width="100" height="100">
+    <img id="child-ship9" class="child-ships" src="assets/images/child-ship.png" width="100" height="100">
+    <img id="child-ship10" class="child-ships" src="assets/images/child-ship.png" width="100" height="100">
+
+
 </section>
 <script src="assets/js/jquery-3.7.0.min.js"></script>
 <script src="assets/js/home-section.js"></script>
+<script src="assets/js/selected-ship-controller.js"></script>
 <script>
     function hideSection() {
         document.getElementById("home").style.display = "none";
@@ -39,83 +105,48 @@
         document.getElementById("selected-ship").setAttribute('src', ship);
     }
 
-    let bottomDisplay = 0, leftDisplay = 0;
-    let heightAsNumber, widthAsNumber;
-    let viewPortWidth, viewPortHeight;
-    $(window).keydown(function (e) {
-        viewPortWidth = $("#player").css("width");
-        viewPortHeight = $("#player").css("height");
-        heightAsNumber = parseInt(viewPortHeight, 10);
-        widthAsNumber = parseInt(viewPortWidth, 10);
-        if (e.key === "ArrowUp" || e.key === "w") {
-            if (heightAsNumber - 100 > bottomDisplay) {
-                bottomDisplay = bottomDisplay + 1;
-                $("#selected-ship").css("bottom", bottomDisplay + "px");
-            }
-        } else if (e.key === "ArrowLeft" || e.key === "a") {
-            if (0 < leftDisplay) {
-                leftDisplay = leftDisplay - 2;
-                $("#selected-ship").css("left", leftDisplay + "px");
-            }
-        } else if (e.key === "ArrowDown" || e.key === "s") {
-            if (0 < bottomDisplay) {
-                bottomDisplay = bottomDisplay - 1;
-                $("#selected-ship").css("bottom", bottomDisplay + "px");
-            }
-        } else if (e.key === "ArrowRight" || e.key === "d") {
-            if (widthAsNumber - 100 > leftDisplay) {
-                leftDisplay = leftDisplay + 2;
-                $("#selected-ship").css("left", leftDisplay + "px");
-            }
-        }
-    });
+    /* setInterval(function () {
+         let viewPortWidth = $("#player").css("width");
+         let viewPortHeight = $("#player").css("height");
+         let heightForChildShip = parseInt(viewPortHeight, 10);
+         let widthForChildShip = parseInt(viewPortWidth, 10);
 
-    $(window).click(function (e) {
-        const divElement = document.createElement('div');
+         const childShip = document.createElement('img');
+         childShip.id = 'child1';
+         childShip.style.width = '100px';
+         childShip.style.height = '100px';
+         childShip.style.margin = '0';
+         childShip.style.position = 'absolute';
+         childShip.style.bottom = heightForChildShip-100+'px';
+         childShip.setAttribute('src',"assets/images/child-ship.png")
+         document.body.appendChild(childShip);
+         childShipsMove(heightForChildShip,childShip);
+     },3000);
+     let y=500;
 
-        divElement.id = 'myDiv';
-        divElement.className = 'my-class';
-        divElement.style.backgroundColor = '#00a9ff';
-        divElement.style.width = '6px';
-        divElement.style.height = '20px';
-        divElement.style.margin = '0';
-        divElement.style.borderRadius = '50px';
-        divElement.style.position = 'absolute';
-        divElement.style.bottom = bottomDisplay + 50 + 'px';
-        divElement.style.left = leftDisplay + 47 + 'px';
-        divElement.style.boxShadow = '0px 6px 9px 4px #2196F3';
+     function childShipsMove(heightForChildShip,childShip) {
+         const intervalID = setInterval(function (){
+             console.log(y);
+             if ( y=== 0) {
+                 // clearInterval(intervalID);
+                 // childShip.remove();
+             }else {
+                 y--;
+                 childShip.style.bottom = y + 'px';
+             }
+         }, 500);
 
-        const intervalID = setInterval(fair, 1);
-        let y = bottomDisplay + 50;
+     }*/
 
-        viewPortHeight = $("#player").css("height");
-        heightAsNumber = parseInt(viewPortHeight, 10);
-
-        function fair() {
-            if (y >= heightAsNumber) {
-                clearInterval(intervalID);
-                divElement.remove();
-            }else {
-                y++;
-                divElement.style.bottom = y + 'px';
-            }
-        }
-        document.body.appendChild(divElement);
-    });
 
     setInterval(function () {
-        const childShip = document.createElement('img');
-        childShip.id = 'child1';
-        childShip.style.width = '100px';
-        childShip.style.height = '100px';
-        childShip.style.margin = '0';
-        childShip.style.position = 'absolute';
-        childShip.style.top = '100px';
-        childShip.setAttribute('src',"assets/images/child-ship.png")
-        document.body.appendChild(childShip);
-
-    },30000);
-
+        for (let i = 0; i < 10; i++) {
+            let newTopPX = $("#child-ship" + i).css("top");
+            let newTop = parseInt(newTopPX, 10);
+            newTop++;
+            $("#child-ship" + i).css("top",newTop+'px');
+        }
+    }, 500);
 </script>
 </body>
 </html>
