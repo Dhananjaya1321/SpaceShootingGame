@@ -1,9 +1,9 @@
-let bottomDisplay = 0, leftDisplay = 0;
+let bottomDisplay = 0, leftDisplay = parseInt($("#level-one").css("width"), 10)/2-42;
 let heightAsNumber, widthAsNumber;
 let viewPortWidth, viewPortHeight;
 $(window).keydown(function (e) {
-    viewPortWidth = $("#player").css("width");
-    viewPortHeight = $("#player").css("height");
+    viewPortWidth = $("#level-one").css("width");
+    viewPortHeight = $("#level-one").css("height");
     heightAsNumber = parseInt(viewPortHeight, 10);
     widthAsNumber = parseInt(viewPortWidth, 10);
     if (e.key === "ArrowUp" || e.key === "w") {
@@ -44,7 +44,7 @@ $(window).click(function (e) {
     divElement.style.left = leftDisplay + 47 + 'px';
     divElement.style.boxShadow = '0px 6px 9px 4px #2196F3';
 
-    viewPortHeight = $("#player").css("height");
+    viewPortHeight = $("#level-one").css("height");
     heightAsNumber = parseInt(viewPortHeight, 10);
     let newBullet,verifyCallBulletFunction=0;
     for (let i = 1; i <= 10; i++) {

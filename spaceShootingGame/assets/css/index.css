@@ -54,12 +54,12 @@
 
 
 
-#player {
+#level-one {
     position: relative;
     height: 100vh;
     overflow: hidden;
 }
-#player>img:nth-child(1){
+#level-one>img:nth-child(1){
     position: absolute;
     width: 100vw;
     height: 100vh;
@@ -75,4 +75,56 @@
     height: 100px;
 }
 
+.child-ships {
+    position: absolute;
+}
 
+#child-ship1 {
+    top: 200px;
+    left: 300px;
+}
+
+#child-ship2 {
+    top: 110px;
+    left: 450px;
+}
+
+#child-ship3 {
+    top: 200px;
+    left: 600px;
+}
+
+#child-ship4 {
+    top: 50px;
+    left: 80px;
+}
+
+#child-ship5 {
+    top: 50px;
+    right: 80px;
+}
+
+#child-ship6 {
+    top: 340px;
+    left: 450px;
+}
+
+#child-ship7 {
+    top: 0;
+    left: 250px;
+}
+
+#child-ship8 {
+    top: 0;
+    right: 250px;
+}
+
+#child-ship9 {
+    top: 0;
+    left: 350px;
+}
+
+#child-ship10 {
+    top: 0;
+    right: 350px;
+}
