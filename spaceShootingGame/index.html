@@ -11,6 +11,16 @@
     </style>
 </head>
 <body>
+<section id="settings">
+    <img src="assets/images/galactic-night-sky-astronomy-science-combined-generative-ai.jpg">
+    <div id="settings-btn">
+        <button>Play</button>
+        <button>Configuration</button>
+    </div>
+    <div id="configuration-btn">
+
+    </div>
+</section>
 <section id="home">
     <img src="assets/images/galactic-night-sky-astronomy-science-combined-generative-ai.jpg">
     <h1>Select ship to continue</h1>
@@ -45,8 +55,11 @@
 <script src="assets/js/home-section.js"></script>
 <script src="assets/js/selected-ship-controller.js"></script>
 <script>
+    // document.getElementById("home").style.display = "none";
+    // document.getElementById("level-one").style.display = "none";
     function hideSection() {
         document.getElementById("home").style.display = "none";
+        document.getElementById("settings").style.display = "none";
     }
 
     function setSelectedShip(ship) {
