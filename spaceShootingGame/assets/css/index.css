@@ -126,51 +126,51 @@
 }
 
 #child-ship1 {
-    top: 200px;
-    left: 300px;
+    top: -350px;
+    left: 500px;
 }
 
 #child-ship2 {
-    top: 110px;
-    left: 450px;
+    top: -550px;
+    left: 650px;
 }
 
 #child-ship3 {
-    top: 200px;
-    left: 600px;
+    top: -350px;
+    left: 800px;
 }
 
 #child-ship4 {
-    top: 50px;
+    top: -800px;
     left: 80px;
 }
 
 #child-ship5 {
-    top: 50px;
+    top: -800px;
     right: 80px;
 }
 
 #child-ship6 {
-    top: 340px;
-    left: 450px;
+    top: -100px;
+    left: 650px;
 }
 
 #child-ship7 {
-    top: 0;
+    top: -700px;
     left: 250px;
 }
 
 #child-ship8 {
-    top: 0;
+    top: -700px;
     right: 250px;
 }
 
 #child-ship9 {
-    top: 0;
+    top: -950px;
     left: 350px;
 }
 
 #child-ship10 {
-    top: 0;
+    top: -950px;
     right: 350px;
 }
