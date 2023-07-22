@@ -52,7 +52,7 @@ $(window).click(function (e) {
         let bulletLeftPosition = leftDisplay + 47;
         // console.log(childShipLeftPosition <= bulletLeftPosition && childShipLeftPosition + 100 >= bulletLeftPosition);
         if (childShipLeftPosition <= bulletLeftPosition && childShipLeftPosition + 100 >= bulletLeftPosition) {
-            let childShipTopPosition = parseInt($("#child-ship" + i).css('top'), 10) + 50;/*50*/
+            let childShipTopPosition = parseInt($("#child-ship" + i).css('top'), 10)+100;/*50*/
             newBullet=new bullet('#bullet' + countIds,heightAsNumber - childShipTopPosition,"#child-ship" + i);
             verifyCallBulletFunction=-1;
             break;
