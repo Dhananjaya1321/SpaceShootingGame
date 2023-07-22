@@ -53,8 +53,9 @@ $(window).click(function (e) {
         // console.log(childShipLeftPosition <= bulletLeftPosition && childShipLeftPosition + 100 >= bulletLeftPosition);
         if (childShipLeftPosition <= bulletLeftPosition && childShipLeftPosition + 100 >= bulletLeftPosition) {
             let childShipTopPosition = parseInt($("#child-ship" + i).css('top'), 10) + 50;/*50*/
-            newBullet=new bullet('#bullet' + countIds,heightAsNumber - childShipTopPosition);
+            newBullet=new bullet('#bullet' + countIds,heightAsNumber - childShipTopPosition,"#child-ship" + i);
             verifyCallBulletFunction=-1;
+            break;
         }
         // console.log(verifyCallBulletFunction===0, i===10)
         if (verifyCallBulletFunction===0 && i===10){
@@ -64,12 +65,14 @@ $(window).click(function (e) {
     document.body.appendChild(divElement);
 });
 
-function bullet(bulletID, maxHeightWantToGo) {
+function bullet(bulletID, maxHeightWantToGo, childShipId) {
     let y = bottomDisplay + 50;
     const intervalID = setInterval(function (){
         if (y >= maxHeightWantToGo) {
             clearInterval(intervalID);
             $(bulletID).remove();
+            $(childShipId).remove();
+            console.log(childShipId);
         } else {
             y++;
             $(bulletID).css('bottom',y + 'px');
