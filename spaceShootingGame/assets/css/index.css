@@ -123,6 +123,7 @@
 
 .child-ships {
     position: absolute;
+    z-index: 1;
 }
 
 #child-ship1 {
