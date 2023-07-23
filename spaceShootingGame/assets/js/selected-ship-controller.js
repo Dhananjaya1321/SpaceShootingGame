@@ -75,11 +75,18 @@ function bullet(bulletID, maxHeightWantToGo, childShipId) {
         if (y >= maxHeightWantToGo) {
             clearInterval(intervalID);
             $(bulletID).remove();
-            $(childShipId).remove();
+
+            childShipRemover(childShipId);
             console.log(childShipId);
         } else {
             y++;
             $(bulletID).css('bottom',y + 'px');
         }
     },1);
+}
+function childShipRemover(childShipId) {
+    $(childShipId).attr('src','assets/images/gif/boomb.gif');
+    setTimeout(function () {
+        $(childShipId).remove();
+    },2500);
 }
