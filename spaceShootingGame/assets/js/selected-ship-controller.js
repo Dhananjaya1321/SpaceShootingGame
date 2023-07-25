@@ -71,7 +71,7 @@ $(window).click(function (e) {
 
 function bullet(bulletID, maxHeightWantToGo, childShipId) {
     let y = bottomDisplay + 50;//current position of bullet
-    let checkSpace=maxHeightWantToGo-bottomDisplay;//child-ships and selected-ship between space
+    let checkSpace=maxHeightWantToGo-bottomDisplay;//get the space between child-ships and selected-ship
     const intervalID = setInterval(function (){
         console.log(checkSpace,checkSpace>75);
         if (y >= maxHeightWantToGo && checkSpace>75) {
