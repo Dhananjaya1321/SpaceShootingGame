@@ -70,14 +70,15 @@ $(window).click(function (e) {
 });
 
 function bullet(bulletID, maxHeightWantToGo, childShipId) {
-    let y = bottomDisplay + 50;
+    let y = bottomDisplay + 50;//current position of bullet
+    let checkSpace=maxHeightWantToGo-bottomDisplay;//child-ships and selected-ship between space
     const intervalID = setInterval(function (){
-        if (y >= maxHeightWantToGo) {
+        console.log(checkSpace,checkSpace>75);
+        if (y >= maxHeightWantToGo && checkSpace>75) {
             clearInterval(intervalID);
             $(bulletID).remove();
 
             childShipRemover(childShipId);
-            console.log(childShipId);
         } else {
             y++;
             $(bulletID).css('bottom',y + 'px');
