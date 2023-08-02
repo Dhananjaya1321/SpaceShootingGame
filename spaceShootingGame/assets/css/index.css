@@ -1,5 +1,5 @@
 /*----------------------------------------settings section----------------------------------*/
-#settings{
+#settings {
     position: relative;
     height: 100vh;
     overflow: hidden;
@@ -7,7 +7,8 @@
     justify-content: center;
     align-items: center;
 }
-#settings-btn,#configuration-btn{
+
+#settings-btn, #configuration-btn {
     position: absolute;
     left: 0;
     right: 0;
@@ -27,7 +28,7 @@
     align-items: center;
 }
 
-#settings-btn>button,#configuration-btn>button{
+#settings-btn > button, #configuration-btn > button {
     width: 300px;
     border-radius: 5px;
     border: none;
@@ -44,6 +45,7 @@
     width: 100vw;
     height: 100vh;
 }
+
 /*----------------------------------------home section----------------------------------*/
 #home {
     position: relative;
@@ -94,6 +96,60 @@
 .ships {
     width: 100%;
 }
+/*-------------------------------------------------------status section------------------------------------------------*/
+#status {
+    position: absolute;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 100px;
+    background-color: #000000b0;
+    z-index: 5;
+    margin: auto;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+}
+#mission-fail{
+    border-radius: 20px;
+    gap: 50px;
+    display: flex;
+    width: 400px;
+    height: 350px;
+    background-color: white;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+#mission-fail>h1{
+    margin: 0;
+    color: white;
+}
+#mission-fail>button{
+    width: 200px;
+    height: 40px;
+    border: none;
+    border-radius: 10px;
+    box-shadow: 0px 2px 6px -4px black;
+    background-color: #1095ff;
+    color: white;
+    font-size: 22px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -105,7 +161,8 @@
     height: 100vh;
     overflow: hidden;
 }
-#level-one>img:nth-child(1){
+
+#level-one > img:nth-child(1) {
     position: absolute;
     width: 100vw;
     height: 100vh;
