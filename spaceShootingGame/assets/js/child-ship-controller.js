@@ -16,6 +16,7 @@ setInterval(function () {
 
 function redAlarm(shipID) {
     $(shipID).remove();
+    missionFail();
     setTimeout(function () {
         $("#level-one").css('height','99vh');
         $("#level-one").css('boxShadow','0px 5px 13px 6px red');
@@ -24,5 +25,10 @@ function redAlarm(shipID) {
         $("#level-one").css('height','100vh');
         $("#level-one").css('boxShadow','none');
     },500);
+}
 
+function missionFail() {
+    document.getElementById("status").style.display = "flex";
+    document.getElementById("mission-fail").style.display = "flex";
+    document.getElementById("mission-pass").style.display = "none";
 }

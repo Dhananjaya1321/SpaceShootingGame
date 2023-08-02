@@ -73,6 +73,7 @@
     // document.getElementById("home").style.display = "none";
     // document.getElementById("level-one").style.display = "none";
     document.getElementById("status").style.display = "none";
+
     function hideSection() {
         document.getElementById("home").style.display = "none";
         // document.getElementById("settings").style.display = "none";
@@ -80,7 +81,7 @@
 
     function setSelectedShip(ship) {
         document.getElementById("selected-ship").setAttribute('src', ship);
-        document.getElementById("selected-ship").style.left=parseInt($("#level-one").css("width"), 10)/2-50+'px';
+        document.getElementById("selected-ship").style.left = parseInt($("#level-one").css("width"), 10) / 2 - 50 + 'px';
     }
 
 </script>
