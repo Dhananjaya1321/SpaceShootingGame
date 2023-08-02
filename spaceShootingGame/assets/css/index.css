@@ -112,22 +112,22 @@
     top: 0;
     bottom: 0;
 }
-#mission-fail{
+#mission-fail,#mission-pass{
     border-radius: 20px;
     gap: 50px;
     display: flex;
     width: 400px;
     height: 350px;
-    background-color: white;
+    background-color: #26729666;
     align-items: center;
     justify-content: center;
     flex-direction: column;
 }
-#mission-fail>h1{
+#mission-fail>h1,#mission-pass>h1,h2{
     margin: 0;
     color: white;
 }
-#mission-fail>button{
+#mission-fail>button,#mission-pass>button{
     width: 200px;
     height: 40px;
     border: none;
