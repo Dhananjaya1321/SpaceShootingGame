@@ -30,9 +30,11 @@ $(window).keydown(function (e) {
         }
     }
 });
-let countIds = 0;
+
+let countIds = 0,clickCount=0;
 $(window).click(function (e) {
-    if (gameStarted()){
+    clickCount++;
+    if (gameStarted() && clickCount>1){
         const divElement = document.createElement('div');
         countIds++;
         divElement.id = 'bullet' + countIds;
