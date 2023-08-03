@@ -32,7 +32,7 @@ $(window).keydown(function (e) {
 });
 
 let countIds = 0,clickCount=0;
-$(window).click(function (e) {
+$("level-one").click(function (e) {
     clickCount++;
     if (gameStarted() && clickCount>1){
         const divElement = document.createElement('div');

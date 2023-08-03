@@ -38,7 +38,20 @@ $("#mission-fail>button:nth-child(3)").click(function () {
     document.getElementById("home").style.display = "flex";
     refreshChildShipPositions();
 });
-let levelOneShipLeftPositions = [];
+
+
+let levelOneShipLeftPositions = [
+    "650px",
+    "650px",
+    "800px",
+    "80px",
+    viewPortWidth - 80 + "px",
+    "500px",
+    "250px",
+    viewPortWidth - 250 + "px",
+    "350px",
+    viewPortWidth + 350 + "px"
+];
 let levelOneShipTopPositions = [
     " -100px",
     " -550px",
@@ -53,19 +66,22 @@ let levelOneShipTopPositions = [
 ];
 
 function refreshChildShipPositions() {
+    value=false;
+    countIds=0;
+    clickCount=0;
     for (let i = 1; i <= 10; i++) {
-        $("#child-ship"+i).remove();
+        $("#child-ship" + i).remove();
     }
     for (let i = 1; i <= 10; i++) {
         let ship = document.createElement('img');
-        ship.setAttribute("src",'assets/images/child-ship.png');
-        ship.id="child-ship"+i;
-        ship.style.top=levelOneShipTopPositions[i-1];
-        ship.style.left='100px';
-        ship.style.width='100px';
-        ship.style.height='100px';
-        ship.style.position='absolute';
-        ship.style.zIndex='1';
+        ship.setAttribute("src", 'assets/images/child-ship.png');
+        ship.id = "child-ship" + i;
+        ship.style.top = levelOneShipTopPositions[i - 1];
+        ship.style.left = levelOneShipLeftPositions[i - 1];
+        ship.style.width = '100px';
+        ship.style.height = '100px';
+        ship.style.position = 'absolute';
+        ship.style.zIndex = '1';
         document.body.appendChild(ship);
     }
 }
