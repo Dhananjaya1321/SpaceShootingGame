@@ -11,7 +11,7 @@ setInterval(function () {
             }
         }
     }
-}, 50);/*child ship speed change*/
+}, 5);/*child ship speed change*/
 
 function redAlarm(shipID) {
     $(shipID).remove();
@@ -37,8 +37,18 @@ $("#mission-fail>button:nth-child(3)").click(function () {
     document.getElementById("level-one").style.display = "none";
     document.getElementById("home").style.display = "flex";
     refreshChildShipPositions();
+    value = false;
+    countIds = 0;
+    clickCount = 0;
 });
 
+$("#mission-fail>button:nth-child(2)").click(function () {
+    document.getElementById("status").style.display = "none";
+    document.getElementById("level-one").style.display = "flex";
+    document.getElementById("home").style.display = "none";
+    refreshChildShipPositions();
+    countIds = 0;
+});
 
 let levelOneShipLeftPositions = [
     "650px",
@@ -52,6 +62,7 @@ let levelOneShipLeftPositions = [
     "350px",
     viewPortWidth + 350 + "px"
 ];
+
 let levelOneShipTopPositions = [
     " -100px",
     " -550px",
@@ -66,9 +77,10 @@ let levelOneShipTopPositions = [
 ];
 
 function refreshChildShipPositions() {
-    value=false;
-    countIds=0;
-    clickCount=0;
+    document.getElementById("selected-ship").style.left = parseInt($("#level-one").css("width"), 10) / 2 - 50 + 'px';
+    document.getElementById("selected-ship").style.bottom = '0px';
+    bottomDisplay = 0;
+    leftDisplay = parseInt(viewPortWidth, 10) / 2 - 50; //set to left position for bullets and move
     for (let i = 1; i <= 10; i++) {
         $("#child-ship" + i).remove();
     }

@@ -32,9 +32,10 @@ $(window).keydown(function (e) {
 });
 
 let countIds = 0,clickCount=0;
-$("level-one").click(function (e) {
+$(window).click(function (e) {
     clickCount++;
     if (gameStarted() && clickCount>1){
+        console.log(leftDisplay + 47 + 'px')
         const divElement = document.createElement('div');
         countIds++;
         divElement.id = 'bullet' + countIds;
@@ -55,14 +56,12 @@ $("level-one").click(function (e) {
         for (let i = 1; i <= 10; i++) {
             let childShipLeftPosition = parseInt($('#child-ship' + i).css('left'), 10);
             let bulletLeftPosition = leftDisplay + 47;
-            // console.log(childShipLeftPosition <= bulletLeftPosition && childShipLeftPosition + 100 >= bulletLeftPosition);
             if (childShipLeftPosition <= bulletLeftPosition && childShipLeftPosition + 100 >= bulletLeftPosition) {
                 let childShipTopPosition = parseInt($("#child-ship" + i).css('top'), 10) + 100;/*50*/
                 newBullet = new bullet('#bullet' + countIds, heightAsNumber - childShipTopPosition, "#child-ship" + i);
                 verifyCallBulletFunction = -1;
                 break;
             }
-            // console.log(verifyCallBulletFunction===0, i===10)
             if (verifyCallBulletFunction === 0 && i === 10) {
                 newBullet = new bullet('#bullet' + countIds, heightAsNumber);
             }
@@ -75,7 +74,6 @@ function bullet(bulletID, maxHeightWantToGo, childShipId) {
     let y = bottomDisplay + 50;//current position of bullet
     let checkSpace=maxHeightWantToGo-bottomDisplay;//get the space between child-ships and selected-ship
     const intervalID = setInterval(function (){
-        console.log(checkSpace,checkSpace>75);
         if (y >= maxHeightWantToGo && checkSpace>75) {
             clearInterval(intervalID);
             $(bulletID).remove();
