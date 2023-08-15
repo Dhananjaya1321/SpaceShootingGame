@@ -53,16 +53,19 @@ $(window).click(function (e) {
         viewPortHeight = $("#level-one").css("height");
         heightAsNumber = parseInt(viewPortHeight, 10);
         let newBullet, verifyCallBulletFunction = 0;
-        for (let i = 1; i <= 10; i++) {
-            let childShipLeftPosition = parseInt($('#child-ship' + i).css('left'), 10);
+        for (let i = 0; i < levelOneShips.length;i++) {
+            let shipID=levelOneShips[i].getId();
+            let childShipLeftPosition = parseInt($(shipID).css('left'), 10);
             let bulletLeftPosition = leftDisplay + 47;
             if (childShipLeftPosition <= bulletLeftPosition && childShipLeftPosition + 100 >= bulletLeftPosition) {
-                let childShipTopPosition = parseInt($("#child-ship" + i).css('top'), 10) + 100;/*50*/
-                newBullet = new bullet('#bullet' + countIds, heightAsNumber - childShipTopPosition, "#child-ship" + i);
+                let childShipTopPosition = parseInt($(shipID).css('top'), 10) + 100;/*50*/
+                newBullet = new bullet('#bullet' + countIds, heightAsNumber - childShipTopPosition, shipID);
                 verifyCallBulletFunction = -1;
                 break;
-            }
-            if (verifyCallBulletFunction === 0 && i === 10) {
+            }/*else {
+                newBullet = new bullet('#bullet' + countIds, heightAsNumber);
+            }*/
+            if (verifyCallBulletFunction === 0 && i === levelOneShips.length-1/*10 parak loop weddi hirawena nisa*/) {
                 newBullet = new bullet('#bullet' + countIds, heightAsNumber);
             }
         }
