@@ -91,6 +91,11 @@ function bullet(bulletID, maxHeightWantToGo, childShipId) {
 function childShipRemover(childShipId) {
     $(childShipId).attr('src','assets/images/gif/boomb.gif');
     setTimeout(function () {
+        for (let i = 0; i <levelOneShips.length; i++) {
+            if (levelOneShips[i].getId()===childShipId) {
+                levelOneShips.splice(i, 1);
+            }
+        }
         $(childShipId).remove();
     },2500);
 }
