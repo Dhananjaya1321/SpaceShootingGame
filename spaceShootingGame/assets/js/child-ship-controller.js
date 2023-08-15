@@ -1,17 +1,37 @@
 setInterval(function () {
     if (gameStarted()) {
-        for (let i = 1; i <= 10; i++) {
-            let newTopPX = $("#child-ship" + i).css("top");
+        console.log(levelOneShips.length)
+        for (let i = 0; i < levelOneShips.length; i++) {
+            let shipID = levelOneShips[i].getId()
+
+            let newTopPX = $(shipID).css("top");
             let newTop = parseInt(newTopPX, 10);
             if (newTop >= heightAsNumber) {
-                redAlarm("#child-ship" + i);
+                redAlarm(shipID);
             } else {
                 newTop++;
-                $("#child-ship" + i).css("top", newTop + 'px');
+                $(shipID).css("top", newTop + 'px');
             }
         }
     }
-}, 5);/*child ship speed change*/
+}, 50);/*child ship speed change*/
+
+function ChildShip() {
+    let __id;
+    let __status;
+    this.setId = function (id) {
+        __id = id;
+    }
+    this.getId = function () {
+        return __id;
+    }
+    this.setStatus = function (status) {
+        __status = status;
+    }
+    this.getStatus = function () {
+        return __status;
+    }
+}
 
 function redAlarm(shipID) {
     $(shipID).remove();
@@ -79,6 +99,9 @@ let levelOneShipTopPositions = [
 function refreshChildShipPositions() {
     document.getElementById("selected-ship").style.left = parseInt($("#level-one").css("width"), 10) / 2 - 50 + 'px';
     document.getElementById("selected-ship").style.bottom = '0px';
+    document.getElementById("level-one").style.overflow = 'hidden';
+    document.getElementById("level-one").style.position = 'relative';
+    document.getElementById("level-one").style.height = '100vh';
     bottomDisplay = 0;
     leftDisplay = parseInt(viewPortWidth, 10) / 2 - 50; //set to left position for bullets and move
     for (let i = 1; i <= 10; i++) {
