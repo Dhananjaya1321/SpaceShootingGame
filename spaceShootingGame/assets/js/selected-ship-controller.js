@@ -31,6 +31,20 @@ $(window).keydown(function (e) {
     }
 });
 
+
+
+let countIds = 0,clickCount=0;
+$(window).click(function (e) {
+    clickCount++;
+    if (gameStarted() && clickCount>1){
+
+        let divElement=createBullet();
+        moveBullet();
+        document.body.appendChild(divElement);
+
+    }
+});
+
 function createBullet() {
     const divElement = document.createElement('div');
     countIds++;
@@ -47,6 +61,7 @@ function createBullet() {
     divElement.style.boxShadow = '0px 6px 9px 4px #2196F3';
     return divElement;
 }
+
 function moveBullet() {
     viewPortHeight = $("#level-one").css("height");
     heightAsNumber = parseInt(viewPortHeight, 10);
@@ -57,35 +72,23 @@ function moveBullet() {
         let bulletLeftPosition = leftDisplay + 47;
         if (childShipLeftPosition <= bulletLeftPosition && childShipLeftPosition + 100 >= bulletLeftPosition) {
             let childShipTopPosition = parseInt($(shipID).css('top'), 10) + 100;/*50*/
-            newBullet = new bullet('#bullet' + countIds, heightAsNumber - childShipTopPosition, shipID);
+            newBullet = new checkBulletDistance('#bullet' + countIds, heightAsNumber - childShipTopPosition, shipID);
             verifyCallBulletFunction = -1;
             break;
         }
         if (verifyCallBulletFunction === 0 && i === levelOneShips.length-1/*10 parak loop weddi hirawena nisa*/) {
-            newBullet = new bullet('#bullet' + countIds, heightAsNumber);
+            newBullet = new checkBulletDistance('#bullet' + countIds, heightAsNumber);
         }
     }
 }
-let countIds = 0,clickCount=0;
-$(window).click(function (e) {
-    clickCount++;
-    if (gameStarted() && clickCount>1){
 
-        let divElement=createBullet();
-        moveBullet();
-        document.body.appendChild(divElement);
-
-    }
-});
-
-function bullet(bulletID, maxHeightWantToGo, childShipId) {
+function checkBulletDistance(bulletID, maxHeightWantToGo, childShipId) {
     let y = bottomDisplay + 50;//current position of bullet
     let checkSpace=maxHeightWantToGo-bottomDisplay;//get the space between child-ships and selected-ship
     const intervalID = setInterval(function (){
         if (y >= maxHeightWantToGo && checkSpace>75) {
             clearInterval(intervalID);
             $(bulletID).remove();
-
             childShipRemover(childShipId);
         } else {
             y++;
@@ -93,6 +96,7 @@ function bullet(bulletID, maxHeightWantToGo, childShipId) {
         }
     },1);
 }
+
 function childShipRemover(childShipId) {
     $(childShipId).attr('src','assets/images/gif/boomb.gif');
     setTimeout(function () {
@@ -102,5 +106,8 @@ function childShipRemover(childShipId) {
             }
         }
         $(childShipId).remove();
+        if (levelOneShips.length===0){
+        //    mission pass go next level
+        }
     },2500);
 }
