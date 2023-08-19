@@ -50,8 +50,6 @@ function redAlarm(shipID) {
     }, 500);
 }
 
-
-
 let levelOneShipLeftPositions = [
     "650px",
     "650px",

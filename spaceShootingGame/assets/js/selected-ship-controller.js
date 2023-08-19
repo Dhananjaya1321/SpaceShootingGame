@@ -107,7 +107,7 @@ function childShipRemover(childShipId) {
         }
         $(childShipId).remove();
         if (levelOneShips.length===0){
-        //    mission pass go next level
+            missionPass();//    mission pass go next level
         }
     },2500);
 }
