@@ -71,6 +71,7 @@ $("#mission-fail>button:nth-child(2)").click(function () {
     document.getElementById("level-one").style.display = "flex";
     document.getElementById("home").style.display = "none";
     refreshChildShipPositions();
+    createChildObjects();
     countIds = 0;
 });
 

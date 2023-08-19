@@ -7,5 +7,4 @@ function createChildObjects() {
         ship.setId("#child-ship" + i);
         levelOneShips.push(ship);
     }
-    console.log(levelOneShips[2].getId())
 }

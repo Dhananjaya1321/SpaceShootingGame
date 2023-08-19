@@ -31,25 +31,28 @@ $(window).keydown(function (e) {
     }
 });
 
+function createBullet() {
+    const divElement = document.createElement('div');
+    countIds++;
+    divElement.id = 'bullet' + countIds;
+    divElement.className = 'bullets';
+    divElement.style.backgroundColor = '#00a9ff';
+    divElement.style.width = '6px';
+    divElement.style.height = '20px';
+    divElement.style.margin = '0';
+    divElement.style.borderRadius = '50px';
+    divElement.style.position = 'absolute';
+    divElement.style.bottom = bottomDisplay + 50 + 'px';
+    divElement.style.left = leftDisplay + 47 + 'px';
+    divElement.style.boxShadow = '0px 6px 9px 4px #2196F3';
+    return divElement;
+}
+
 let countIds = 0,clickCount=0;
 $(window).click(function (e) {
     clickCount++;
     if (gameStarted() && clickCount>1){
-        console.log(leftDisplay + 47 + 'px')
-        const divElement = document.createElement('div');
-        countIds++;
-        divElement.id = 'bullet' + countIds;
-        divElement.className = 'bullets';
-        divElement.style.backgroundColor = '#00a9ff';
-        divElement.style.width = '6px';
-        divElement.style.height = '20px';
-        divElement.style.margin = '0';
-        divElement.style.borderRadius = '50px';
-        divElement.style.position = 'absolute';
-        divElement.style.bottom = bottomDisplay + 50 + 'px';
-        divElement.style.left = leftDisplay + 47 + 'px';
-        divElement.style.boxShadow = '0px 6px 9px 4px #2196F3';
-
+        let divElement=createBullet();
         viewPortHeight = $("#level-one").css("height");
         heightAsNumber = parseInt(viewPortHeight, 10);
         let newBullet, verifyCallBulletFunction = 0;
@@ -62,9 +65,7 @@ $(window).click(function (e) {
                 newBullet = new bullet('#bullet' + countIds, heightAsNumber - childShipTopPosition, shipID);
                 verifyCallBulletFunction = -1;
                 break;
-            }/*else {
-                newBullet = new bullet('#bullet' + countIds, heightAsNumber);
-            }*/
+            }
             if (verifyCallBulletFunction === 0 && i === levelOneShips.length-1/*10 parak loop weddi hirawena nisa*/) {
                 newBullet = new bullet('#bullet' + countIds, heightAsNumber);
             }
