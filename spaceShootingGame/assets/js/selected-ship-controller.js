@@ -107,7 +107,13 @@ function childShipRemover(childShipId) {
         }
         $(childShipId).remove();
         if (levelOneShips.length===0){
-            missionPass();//    mission pass go next level
+            if (calculateScore(Number($("#level-number").text()))){
+                missionPass();//mission pass go next level
+            }else {
+                $("#score").text(0);
+                $("#level-number").text(Number($("#level-number").text()) - 1);
+                missionFail();
+            }
         }
     },2500);
 }
