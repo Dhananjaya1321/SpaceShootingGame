@@ -19,3 +19,15 @@ function calculateScore(level) {
             }
     }
 }
+
+$("#continue-btn").click(function () {
+    document.getElementById("status").style.display = "none";
+    document.getElementById("mission-fail").style.display = "none";
+    document.getElementById("mission-pass").style.display = "none";
+
+    refreshChildShipPositions();
+    createChildObjects();
+    clickCount = 0;
+    countIds = 0;
+})
+

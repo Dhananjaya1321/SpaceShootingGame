@@ -20,5 +20,6 @@ $("#mission-fail>button:nth-child(2)").click(function () {
     document.getElementById("home").style.display = "none";
     refreshChildShipPositions();
     createChildObjects();
+    clickCount = 0;
     countIds = 0;
 });
