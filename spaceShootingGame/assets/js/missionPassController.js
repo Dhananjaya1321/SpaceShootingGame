@@ -27,7 +27,13 @@ $("#continue-btn").click(function () {
 
     refreshChildShipPositions();
     createChildObjects();
-    clickCount = 0;
-    countIds = 0;
+    removeBullets();
 })
 
+function removeBullets() {
+    for (let i = 1; i <=countIds; i++) {
+        $("#bullet"+i).remove();
+    }
+    countIds=0;
+    clickCount=0;
+}
