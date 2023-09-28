@@ -75,8 +75,53 @@ let levelOneShipTopPositions = [
     " -950px",
     " -950px"
 ];
+let levelTwoShipLeftPositions = [
+    "650px",
+    "750px",
+    "800px",
+    "80px",
+    viewPortWidth - 80 + "px",
+    "500px",
+    "250px",
+    viewPortWidth - 250 + "px",
+    "350px",
+    viewPortWidth + 350 + "px",
+    "450px",
+    "350px",
+    "200px",
+    "8px",
+    viewPortWidth - 80 + "px",
+    "500px",
+    "250px",
+    viewPortWidth - 250 + "px",
+    "350px",
+    viewPortWidth + 350 + "px"
+];
 
-function refreshChildShipPositions() {
+let levelTwoShipTopPositions = [
+    " 100px",
+    " 100px",
+    " 100px",
+    " 100px",
+    " 100px",
+    " 100px",
+    " 100px",
+    " 100px",
+    " 100px",
+    " 100px",
+    " 100px",
+    " 100px",
+    " 100px",
+    " 100px",
+    " 100px",
+    " 100px",
+    " 100px",
+    " 100px",
+    " 100px",
+    " 100px"
+];
+
+function refreshChildShipPositions(level) {
     document.getElementById("selected-ship").style.left = parseInt($("#level-one").css("width"), 10) / 2 - 50 + 'px';
     document.getElementById("selected-ship").style.bottom = '0px';
     document.getElementById("level-one").style.overflow = 'hidden';
@@ -87,12 +132,18 @@ function refreshChildShipPositions() {
     for (let i = 1; i <= 10; i++) {
         $("#child-ship" + i).remove();
     }
-    for (let i = 1; i <= 10; i++) {
+
+    for (let i = 1; i <= level*10; i++) {
         let ship = document.createElement('img');
         ship.setAttribute("src", 'assets/images/child-ship.png');
         ship.id = "child-ship" + i;
-        ship.style.top = levelOneShipTopPositions[i - 1];
-        ship.style.left = levelOneShipLeftPositions[i - 1];
+        if (level===1){
+            ship.style.top = levelOneShipTopPositions[i - 1];
+            ship.style.left = levelOneShipLeftPositions[i - 1];
+        }else {
+            ship.style.top = levelTwoShipTopPositions[i - 1];
+            ship.style.left = levelTwoShipLeftPositions[i - 1];
+        }
         ship.style.width = '100px';
         ship.style.height = '100px';
         ship.style.position = 'absolute';

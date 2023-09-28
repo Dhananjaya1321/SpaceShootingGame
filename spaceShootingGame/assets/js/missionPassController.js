@@ -24,9 +24,17 @@ $("#continue-btn").click(function () {
     document.getElementById("status").style.display = "none";
     document.getElementById("mission-fail").style.display = "none";
     document.getElementById("mission-pass").style.display = "none";
+    let level = $("#level-number").text();
+    let objectCount;
+    switch (level){
+        case 2:objectCount=20;break;
+        case 3:objectCount=30;break;
+        case 4:objectCount=40;break;
+        default:objectCount=10;break;
+    }
 
-    refreshChildShipPositions();
-    createChildObjects(20);//create 20 ship objects for level 2
+    refreshChildShipPositions(level);
+    createChildObjects(objectCount);//create ship objects for level new level
     removeBullets();
 })
 
