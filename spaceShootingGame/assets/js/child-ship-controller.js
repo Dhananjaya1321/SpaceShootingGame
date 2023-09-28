@@ -1,8 +1,8 @@
 setInterval(function () {
     if (gameStarted()) {
-        console.log(levelOneShips.length)
-        for (let i = 0; i < levelOneShips.length; i++) {
-            let shipID = levelOneShips[i].getId();
+        console.log(ships.length)
+        for (let i = 0; i < ships.length; i++) {
+            let shipID = ships[i].getId();
             let newTopPX = $(shipID).css("top");
             let newTop = parseInt(newTopPX, 10);
             if (newTop >= heightAsNumber) {
@@ -34,9 +34,9 @@ function ChildShip() {
 
 function redAlarm(shipID) {
     $(shipID).remove();
-    for (let i = 0; i <levelOneShips.length; i++) {
-        if (levelOneShips[i].getId()===shipID) {
-            levelOneShips.splice(i, 1);
+    for (let i = 0; i <ships.length; i++) {
+        if (ships[i].getId()===shipID) {
+            ships.splice(i, 1);
         }
     }
     missionFail();

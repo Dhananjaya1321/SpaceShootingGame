@@ -66,8 +66,8 @@ function moveBullet() {
     viewPortHeight = $("#level-one").css("height");
     heightAsNumber = parseInt(viewPortHeight, 10);
     let newBullet, verifyCallBulletFunction = 0;
-    for (let i = 0; i < levelOneShips.length;i++) {
-        let shipID=levelOneShips[i].getId();
+    for (let i = 0; i < ships.length; i++) {
+        let shipID=ships[i].getId();
         let childShipLeftPosition = parseInt($(shipID).css('left'), 10);
         let bulletLeftPosition = leftDisplay + 47;
         if (childShipLeftPosition <= bulletLeftPosition && childShipLeftPosition + 100 >= bulletLeftPosition) {
@@ -76,7 +76,7 @@ function moveBullet() {
             verifyCallBulletFunction = -1;
             break;
         }
-        if (verifyCallBulletFunction === 0 && i === levelOneShips.length-1/*10 parak loop weddi hirawena nisa*/) {
+        if (verifyCallBulletFunction === 0 && i === ships.length-1/*10 parak loop weddi hirawena nisa*/) {
             newBullet = new checkBulletDistance('#bullet' + countIds, heightAsNumber);
         }
     }
@@ -100,13 +100,13 @@ function checkBulletDistance(bulletID, maxHeightWantToGo, childShipId) {
 function childShipRemover(childShipId) {
     $(childShipId).attr('src','assets/images/gif/boomb.gif');
     setTimeout(function () {
-        for (let i = 0; i <levelOneShips.length; i++) {
-            if (levelOneShips[i].getId()===childShipId) {
-                levelOneShips.splice(i, 1);
+        for (let i = 0; i <ships.length; i++) {
+            if (ships[i].getId()===childShipId) {
+                ships.splice(i, 1);
             }
         }
         $(childShipId).remove();
-        if (levelOneShips.length===0){
+        if (ships.length===0){
             if (calculateScore(Number($("#level-number").text()))){
                 missionPass();//mission pass go next level
             }else {

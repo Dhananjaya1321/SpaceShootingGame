@@ -1,10 +1,10 @@
-let levelOneShips;
+let ships;
 function createChildObjects() {
-    levelOneShips = [];
+    ships = [];
     for (let i = 1; i <= 10; i++) {
         let ship = new ChildShip();
         ship.setStatus(1);
         ship.setId("#child-ship" + i);
-        levelOneShips.push(ship);
+        ships.push(ship);
     }
 }
