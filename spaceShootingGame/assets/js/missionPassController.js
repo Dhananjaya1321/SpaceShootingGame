@@ -26,7 +26,7 @@ $("#continue-btn").click(function () {
     document.getElementById("mission-pass").style.display = "none";
 
     refreshChildShipPositions();
-    createChildObjects();
+    createChildObjects(20);//create 20 ship objects for level 2
     removeBullets();
 })
 
@@ -36,4 +36,4 @@ function removeBullets() {
     }
     countIds=0;
     clickCount=0;
-}
+}//this method use to remove all bullets
