@@ -51,29 +51,12 @@ function redAlarm(shipID) {
 }
 
 let levelOneShipLeftPositions = [
-    "650px",
-    "650px",
-    "800px",
-    "80px",
-    viewPortWidth - 80 + "px",
-    "500px",
-    "250px",
-    viewPortWidth - 250 + "px",
-    "350px",
-    viewPortWidth + 350 + "px"
+    "650px"
 ];
 
 let levelOneShipTopPositions = [
-    " -100px",
-    " -550px",
-    " -350px",
-    " -800px",
-    " -800px",
-    " -350px",
-    " -700px",
-    " -700px",
-    " -950px",
-    " -950px"
+    " -100px"
+
 ];
 let levelTwoShipLeftPositions = [
     "650px",
@@ -90,35 +73,25 @@ let levelTwoShipLeftPositions = [
     "350px",
     "200px",
     "8px",
-    viewPortWidth - 80 + "px",
-    "500px",
-    "250px",
-    viewPortWidth - 250 + "px",
-    "350px",
-    viewPortWidth + 350 + "px"
+    viewPortWidth - 80 + "px"
 ];
 
 let levelTwoShipTopPositions = [
-    " 100px",
-    " 100px",
-    " 100px",
-    " 100px",
-    " 100px",
-    " 100px",
-    " 100px",
-    " 100px",
-    " 100px",
-    " 100px",
-    " 100px",
-    " 100px",
-    " 100px",
-    " 100px",
-    " 100px",
-    " 100px",
-    " 100px",
-    " 100px",
-    " 100px",
-    " 100px"
+    "-100px",
+    "-250px",
+    "-350px",
+    "-450px",
+    "-550px",
+    "-650px",
+    "-750px",
+    "-850px",
+    "-950px",
+    "-800px",
+    "-700px",
+    "-600px",
+    "-500px",
+    "-400px",
+    "-300px"
 ];
 
 function refreshChildShipPositions(level) {
