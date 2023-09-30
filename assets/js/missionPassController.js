@@ -6,11 +6,10 @@ function missionPass() {
 
 function calculateScore(level) {
     //10 points were added for blowing up one plane and Deduct 2 points per bullet
-    let currentLevel =Number($("#level-number").text());
-    let score = 100 * currentLevel - countIds * 2;
-    if (score > (100 * currentLevel) * (6.0 / 10.0)) {
+    let score = (100 * level) - countIds * 2;
+    if (score > (100 * level) * 0.6) {
         $("#score").text(score);
-        $("#level-number").text(currentLevel + 1);
+        $("#level-number").text(level + 1);
         return true;
     } else {
         return false;
@@ -25,21 +24,21 @@ $("#continue-btn").click(function () {
     let objectCount;
     switch (level) {
         case 2:
-            objectCount = 20;
+            objectCount = 15;
             break;
         case 3:
-            objectCount = 30;
+            objectCount = 20;
             break;
         case 4:
-            objectCount = 40;
+            objectCount = 25;
             break;
         default:
             objectCount = 10;
             break;
     }
 
-    refreshChildShipPositions(level);
     createChildObjects(objectCount);//create ship objects for level new level
+    refreshChildShipPositions(level,false);
     removeBullets();
 })
 

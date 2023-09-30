@@ -106,6 +106,7 @@ function childShipRemover(childShipId) {
             }
         }
         $(childShipId).remove();
+        console.log(ships.length);
         if (ships.length===0){
             if (calculateScore(Number($("#level-number").text()))){
                 missionPass();//mission pass go next level

@@ -19,7 +19,7 @@ document.getElementById("ship3").addEventListener("click", function () {
     hideSection();
     setSelectedShip(ship);
     value = true;
-    createChildObjects(1);
+    createChildObjects(10);
 });
 
 function gameStarted() {
