@@ -15,23 +15,6 @@ setInterval(function () {
     }
 }, 50);/*child ship speed change*/
 
-function ChildShip() {
-    let __id;
-    let __status;
-    this.setId = function (id) {
-        __id = id;
-    }
-    this.getId = function () {
-        return __id;
-    }
-    this.setStatus = function (status) {
-        __status = status;
-    }
-    this.getStatus = function () {
-        return __status;
-    }
-}
-
 function redAlarm(shipID) {
     $(shipID).remove();
     for (let i = 0; i < ships.length; i++) {
