@@ -38,12 +38,12 @@ let levelOneShipLeftPositions = [
     "650px",
     "800px",
     "80px",
-    viewPortWidth - 80 + "px",
+    widthAsNumber - 80 + "px",
     "500px",
     "250px",
-    viewPortWidth - 250 + "px",
+    widthAsNumber - 250 + "px",
     "350px",
-    viewPortWidth + 350 + "px"
+    widthAsNumber + 350 + "px"
 ];
 
 let levelOneShipTopPositions = [
@@ -58,22 +58,24 @@ let levelOneShipTopPositions = [
     " -950px",
     " -950px"
 ];
+
+
 let levelTwoShipLeftPositions = [
     "200px",
-    viewPortWidth / 2 - 100 + "px",
-    viewPortWidth - 200 + "px",
-    "350px",
-    viewPortWidth - 350 + "px",
+    "700px",
+    "1100px",
+    "500px",
+    "900px",
     "200px",
-    viewPortWidth / 2 - 100 + "px",
-    viewPortWidth - 200 + "px",
-    viewPortWidth / 2 - 100 + "px",
-    viewPortWidth / 2 - 250 + "px",
-    viewPortWidth / 2 + 150 + "px",
+    "500px",
+    "800px",
+    "400px",
+    "700px",
+    "1000px",
     "100px",
-    "250px",
-    viewPortWidth - 100 + "px",
-    viewPortWidth + 250 + "px"
+    "300px",
+    "800px",
+    "1000px",
 
 ];
 
@@ -91,11 +93,13 @@ let levelTwoShipTopPositions = [
     "-700px",
     "-800px",
     "-800px",
-    "-900px",
-    "-900px"
+    "-800px",
+    "-800px"
 ];
 
 function refreshChildShipPositions(level, oldLevel) {
+
+
     document.getElementById("selected-ship").style.left = parseInt($("#level-one").css("width"), 10) / 2 - 50 + 'px';
     document.getElementById("selected-ship").style.bottom = '0px';
     document.getElementById("level-one").style.overflow = 'hidden';
