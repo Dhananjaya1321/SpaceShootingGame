@@ -64,3 +64,32 @@ let levelTwoShipTopPositions = [
     "-800px",
     "-800px"
 ];
+
+//==================================================== level two ======================================================
+
+let levelThreeShipLeftPositions = [];
+
+let levelThreeShipTopPositions = [
+    "-100px",
+    "-100px",
+    "-100px",
+    "-300px",
+    "-300px",
+    "-500px",
+    "-500px",
+    "-500px",
+    "-700px",
+    "-700px",
+    "-700px",
+    "-800px",
+    "-800px",
+    "-800px",
+    "-800px"
+];
+
+
+// To generate a random decimal between 0 and 1
+//Generated value multiply in the range I want to positions
+for (let i = 0; i <20; i++) {
+    levelThreeShipLeftPositions.push(parseInt(Math.random() * 1200));
+}

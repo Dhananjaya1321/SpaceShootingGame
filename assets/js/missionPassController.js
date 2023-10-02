@@ -38,7 +38,8 @@ $("#continue-btn").click(function () {
             break;
     }
 
-    createChildObjects(objectCount);//create ship objects for level new level
+    //create ship objects for new level
+    createChildObjects(objectCount);
     refreshChildShipPositions(level,false);
     removeBullets();
 })

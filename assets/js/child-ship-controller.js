@@ -1,6 +1,5 @@
 setInterval(function () {
     if (gameStarted()) {
-        console.log(ships.length)
         for (let i = 0; i < ships.length; i++) {
             let shipID = ships[i].getId();
             let newTopPX = $(shipID).css("top");
