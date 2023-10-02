@@ -5,6 +5,7 @@ function missionPass() {
 }
 
 function calculateScore(level) {
+    $("#score").text(0);
     //10 points were added for blowing up one plane and Deduct 2 points per bullet
     let score = (100 * level) - countIds * 2;
     if (score > (100 * level) * 0.6) {

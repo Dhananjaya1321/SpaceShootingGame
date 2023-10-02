@@ -98,8 +98,6 @@ let levelTwoShipTopPositions = [
 ];
 
 function refreshChildShipPositions(level, oldLevel) {
-
-
     document.getElementById("selected-ship").style.left = parseInt($("#level-one").css("width"), 10) / 2 - 50 + 'px';
     document.getElementById("selected-ship").style.bottom = '0px';
     document.getElementById("level-one").style.overflow = 'hidden';
@@ -109,25 +107,38 @@ function refreshChildShipPositions(level, oldLevel) {
     leftDisplay = parseInt(viewPortWidth, 10) / 2 - 50; //set to left position for bullets and move
     let shipRemoveCount;
     if (oldLevel) {
-        shipRemoveCount = ships.length;
+        shipRemoveCount = ships.length;//Get the number of ships to remove to replay or go back and replay the current level
     } else {
-        shipRemoveCount = ships.length - 5;
+        shipRemoveCount = ships.length - 5;//Get number of ships to clear level ships before moving to new level
     }
 
+    //Remove all available ships in the game
     for (let i = 1; i <= shipRemoveCount; i++) {
         $("#child-ship" + i).remove();
     }
 
+    //Create ships for that current level using the ships array length
     for (let i = 1; i <= ships.length; i++) {
         let ship = document.createElement('img');
         ship.setAttribute("src", 'assets/images/child-ship.png');
         ship.id = "child-ship" + i;
-        if (level === 1) {
-            ship.style.top = levelOneShipTopPositions[i - 1];
-            ship.style.left = levelOneShipLeftPositions[i - 1];
-        } else {
-            ship.style.top = levelTwoShipTopPositions[i - 1];
-            ship.style.left = levelTwoShipLeftPositions[i - 1];
+
+        //This switch is used to select ship positions arrays using level
+        switch (level) {
+            case 1:
+                ship.style.top = levelOneShipTopPositions[i - 1];
+                ship.style.left = levelOneShipLeftPositions[i - 1];
+                break;
+            case 2:
+                ship.style.top = levelTwoShipTopPositions[i - 1];
+                ship.style.left = levelTwoShipLeftPositions[i - 1];
+                break;
+            case 3:
+
+                break;
+            case 4:
+
+                break;
         }
         ship.style.width = '100px';
         ship.style.height = '100px';
