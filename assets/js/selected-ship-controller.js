@@ -9,22 +9,22 @@ $(window).keydown(function (e) {
     if (gameStarted()){
         if (e.key === "ArrowUp" || e.key === "w") {
             if (heightAsNumber - 100 > bottomDisplay) {
-                bottomDisplay = bottomDisplay + 1;
+                bottomDisplay = bottomDisplay + 2;
                 $("#selected-ship").css("bottom", bottomDisplay + "px");
             }
         } else if (e.key === "ArrowLeft" || e.key === "a") {
             if (0 < leftDisplay) {
-                leftDisplay = leftDisplay - 2;
+                leftDisplay = leftDisplay - 4;
                 $("#selected-ship").css("left", leftDisplay + "px");
             }
         } else if (e.key === "ArrowDown" || e.key === "s") {
             if (0 < bottomDisplay) {
-                bottomDisplay = bottomDisplay - 1;
+                bottomDisplay = bottomDisplay - 2;
                 $("#selected-ship").css("bottom", bottomDisplay + "px");
             }
         } else if (e.key === "ArrowRight" || e.key === "d") {
             if (widthAsNumber - 100 > leftDisplay) {
-                leftDisplay = leftDisplay + 2;
+                leftDisplay = leftDisplay + 4;
                 $("#selected-ship").css("left", leftDisplay + "px");
             }
         }

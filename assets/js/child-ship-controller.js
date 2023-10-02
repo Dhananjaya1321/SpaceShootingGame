@@ -59,39 +59,40 @@ let levelOneShipTopPositions = [
     " -950px"
 ];
 let levelTwoShipLeftPositions = [
-    "650px",
-    "750px",
-    "800px",
-    "80px",
-    viewPortWidth - 80 + "px",
-    "500px",
-    "250px",
-    viewPortWidth - 250 + "px",
-    "350px",
-    viewPortWidth + 350 + "px",
-    "450px",
-    "350px",
     "200px",
-    "8px",
-    viewPortWidth - 80 + "px"
+    viewPortWidth / 2 - 100 + "px",
+    viewPortWidth - 200 + "px",
+    "350px",
+    viewPortWidth - 350 + "px",
+    "200px",
+    viewPortWidth / 2 - 100 + "px",
+    viewPortWidth - 200 + "px",
+    viewPortWidth / 2 - 100 + "px",
+    viewPortWidth / 2 - 250 + "px",
+    viewPortWidth / 2 + 150 + "px",
+    "100px",
+    "250px",
+    viewPortWidth - 100 + "px",
+    viewPortWidth + 250 + "px"
+
 ];
 
 let levelTwoShipTopPositions = [
     "-100px",
-    "-250px",
-    "-350px",
-    "-450px",
-    "-550px",
-    "-650px",
-    "-750px",
-    "-850px",
-    "-950px",
-    "-800px",
-    "-700px",
-    "-600px",
+    "-100px",
+    "-100px",
+    "-300px",
+    "-300px",
     "-500px",
-    "-400px",
-    "-300px"
+    "-500px",
+    "-500px",
+    "-700px",
+    "-700px",
+    "-700px",
+    "-800px",
+    "-800px",
+    "-900px",
+    "-900px"
 ];
 
 function refreshChildShipPositions(level, oldLevel) {
