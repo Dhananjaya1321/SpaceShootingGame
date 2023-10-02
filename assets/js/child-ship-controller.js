@@ -33,70 +33,6 @@ function redAlarm(shipID) {
     }, 500);
 }
 
-let levelOneShipLeftPositions = [
-    "650px",
-    "650px",
-    "800px",
-    "80px",
-    widthAsNumber - 80 + "px",
-    "500px",
-    "250px",
-    widthAsNumber - 250 + "px",
-    "350px",
-    widthAsNumber + 350 + "px"
-];
-
-let levelOneShipTopPositions = [
-    " -100px",
-    " -550px",
-    " -350px",
-    " -800px",
-    " -800px",
-    " -350px",
-    " -700px",
-    " -700px",
-    " -950px",
-    " -950px"
-];
-
-
-let levelTwoShipLeftPositions = [
-    "200px",
-    "700px",
-    "1100px",
-    "500px",
-    "900px",
-    "200px",
-    "500px",
-    "800px",
-    "400px",
-    "700px",
-    "1000px",
-    "100px",
-    "300px",
-    "800px",
-    "1000px",
-
-];
-
-let levelTwoShipTopPositions = [
-    "-100px",
-    "-100px",
-    "-100px",
-    "-300px",
-    "-300px",
-    "-500px",
-    "-500px",
-    "-500px",
-    "-700px",
-    "-700px",
-    "-700px",
-    "-800px",
-    "-800px",
-    "-800px",
-    "-800px"
-];
-
 function refreshChildShipPositions(level, oldLevel) {
     document.getElementById("selected-ship").style.left = parseInt($("#level-one").css("width"), 10) / 2 - 50 + 'px';
     document.getElementById("selected-ship").style.bottom = '0px';
@@ -104,12 +40,16 @@ function refreshChildShipPositions(level, oldLevel) {
     document.getElementById("level-one").style.position = 'relative';
     document.getElementById("level-one").style.height = '100vh';
     bottomDisplay = 0;
-    leftDisplay = parseInt(viewPortWidth, 10) / 2 - 50; //set to left position for bullets and move
+
+    //set to left position for bullets and move
+    leftDisplay = parseInt(viewPortWidth, 10) / 2 - 50;
     let shipRemoveCount;
     if (oldLevel) {
-        shipRemoveCount = ships.length;//Get the number of ships to remove to replay or go back and replay the current level
+        //Get the number of ships to remove to replay or go back and replay the current level
+        shipRemoveCount = ships.length;
     } else {
-        shipRemoveCount = ships.length - 5;//Get number of ships to clear level ships before moving to new level
+        //Get number of ships to clear level ships before moving to new level
+        shipRemoveCount = ships.length - 5;
     }
 
     //Remove all available ships in the game

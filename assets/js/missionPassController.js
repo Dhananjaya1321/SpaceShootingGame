@@ -43,10 +43,12 @@ $("#continue-btn").click(function () {
     removeBullets();
 })
 
+
+//this method use to remove all bullets
 function removeBullets() {
     for (let i = 1; i <= countIds; i++) {
         $("#bullet" + i).remove();
     }
     countIds = 0;
     clickCount = 0;
-}//this method use to remove all bullets
+}
