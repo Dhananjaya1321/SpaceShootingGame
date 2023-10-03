@@ -37,6 +37,7 @@ function refreshChildShipPositions(level, oldLevel) {
     document.getElementById("selected-ship").style.bottom = '0px';
     document.getElementById("level-one").style.overflow = 'hidden';
     document.getElementById("level-one").style.position = 'relative';
+    document.getElementById("level-one").style.overflow = 'hidden';
     document.getElementById("level-one").style.height = '100vh';
     bottomDisplay = 0;
 
@@ -73,7 +74,9 @@ function refreshChildShipPositions(level, oldLevel) {
                 ship.style.left = levelTwoShipLeftPositions[i - 1];
                 break;
             case 3:
-
+                ship.style.top = levelThreeShipTopPositions[i - 1];
+                ship.style.left = levelThreeShipLeftPositions[i - 1];
+                console.log(levelThreeShipLeftPositions[i - 1])
                 break;
             case 4:
 
